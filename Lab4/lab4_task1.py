@@ -5,7 +5,7 @@ import time
 
 
 def xml_to_json_task1(xml_file: str):
-    res = open('../result.json', 'w')
+    res = open('result.json', 'w')
     xml_obj = open(xml_file)
 
     res.write('{\n')
@@ -47,4 +47,4 @@ def xml_to_json_task1(xml_file: str):
     xml_obj.close()
 
 
-xml_to_json_task1("../timetable.xml")
+xml_to_json_task1("timetable.xml")

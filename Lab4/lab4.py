@@ -5,7 +5,7 @@ import time
 
 
 def xml_to_json_task1(xml_file: str):
-    res = open('../result.json', 'w')
+    res = open('result.json', 'w')
     xml_obj = open(xml_file)
 
     res.write('{\n')
@@ -53,12 +53,12 @@ def xml_to_json_task2(xml_file: str):
 
     json_data = json.dumps(data_dict)
 
-    with open('../result2.json', 'w') as json_file:
+    with open('result2.json', 'w') as json_file:
         json_file.write(json_data)
 
 
 def xml_to_json_task3(xml_file: str):
-    res = open('../result3.json', 'w')
+    res = open('result3.json', 'w')
     xml_obj = open(xml_file)
 
     res.write('{\n')
@@ -106,7 +106,7 @@ def xml_to_json_task3(xml_file: str):
 
 start_time = time.time()
 for _ in range(1000):
-    xml_to_json_task1("../timetable.xml")
+    xml_to_json_task1("timetable.xml")
 print(f'FIRST TASK: {time.time() - start_time} seconds')
 
 start_time = time.time()
