@@ -103,11 +103,3 @@ def xml_to_json_task3(xml_file: str):
     res.close()
     xml_obj.close()
 
-
-start_time = time.time()
-for _ in range(1000):
-    xml_to_json_task1("timetable.xml")
-print(f'FIRST TASK: {time.time() - start_time} seconds')
-
-start_time = time.time()
-
