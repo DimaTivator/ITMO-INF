@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<timetable>
+	<lang>
+		ru
+	</lang>
+	<group>
+		P3112
+	</group>
+	<day>
+		Monday
+	</day>
+	<lessons>
+		<lesson1>
+			<time>
+				11:40 - 13:10
+			</time>
+			<teacher>
+				Дорогинский Станислав Вячеславович
+			</teacher>
+			<room>
+				спортивный зал
+			</room>
+			<place>
+				Вяземский пер. 5-7
+			</place>
+			<lesson>
+				настольный теннис
+			</lesson>
+		</lesson1>
+		<lesson2>
+			<time>
+				18:40 - 20:10
+			</time>
+			<teacher>
+				Карпов Дмитрий Валерьевич
+			</teacher>
+			<room>
+				ауд. 1419
+			</room>
+			<place>
+				Кронверкский пр., д.49, лит.А
+			</place>
+			<lesson>
+				дискретная математика (лекция)
+			</lesson>
+		</lesson2>
+		<lesson3>
+			<time>
+				20:20 - 21:50
+			</time>
+			<teacher>
+				Карпов Дмитрий Валерьевич
+			</teacher>
+			<room>
+				ауд. 2316
+			</room>
+			<place>
+				Кронверкский пр., д.49, лит.А
+			</place>
+			<lesson>
+				дискретная математика (практика)
+			</lesson>
+		</lesson3>
+	</lessons>
+</timetable>
