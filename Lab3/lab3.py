@@ -41,18 +41,17 @@ def task2():
 # В тестах сначала идут 3 буквы, затем интервал между ними, затем строка (все через пробел)
 def task3():
     tests, answers = get_tests_and_answers('tests_task3.txt', 'answers_task3.txt')
-    # pattern = re.compile(r'\bA.{2}B.{2}C\b')
-    a = 'A'
-    b = 'B'
-    c = 'C'
-    pattern = re.compile(rf'\b{a}.{2}{b}.{2}{c}\b')
     for i in range(len(tests)):
-        a = re.findall(pattern, tests[i])
+        test = tests[i].split()
+        letter1, letter2, letter3, spacing = test[:4]
+        s = ' '.join(test[4:])
+        pattern = re.compile(r'\b' + letter1 + r'.{' + spacing + r'}' + letter2 + r'.{' + spacing + r'}' + letter3 + r'\b')
+        a = re.findall(pattern, s)
         # print(a)
         print(f"Test {i + 1} OK" if a == answers[i].split() else f"Test {i + 1} WA")
 
 
-# task1()
-# task2()
-# task3()
+task1()
+task2()
+task3()
 
