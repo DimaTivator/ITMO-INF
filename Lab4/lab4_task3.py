@@ -5,17 +5,20 @@ def make_text(tag: str) -> str:
     return tag.replace('<', '').replace('>', '')
 
 
-def make_beautiful_xml(xml_file: str):
+def check_open_tag(s: str) -> bool:
+    return len(re.findall(re.compile(r'<[^/]*>'), s)) > 0
+
+
+def check_close_tag(s: str) -> bool:
+    return len(re.findall(re.compile(r'</.*>'), s)) > 0
+
+
+def xml_to_json(xml_file: str):
     xml_obj = open(xml_file)
-    result_xml = open('beautiful_xml.xml', 'w')
 
     xml_list = []
-    for line in xml_obj:
-        xml_list.append(''.join([symbol for symbol in line if symbol not in ['\n', '\t']]))
 
-    result_list = []
-
-    for line in xml_list:
+    for line in [''.join(line.replace('\t', '').replace('\n', '')) for line in xml_obj]:
 
         is_open_tag = False
         is_close_tag = False
@@ -40,7 +43,7 @@ def make_beautiful_xml(xml_file: str):
                     open_tag += line[i]
 
                 if len(text):
-                    result_list.append(text + '\n')
+                    xml_list.append(text)
                     text = ''
 
             if not is_open_tag and not is_close_tag:
@@ -49,83 +52,54 @@ def make_beautiful_xml(xml_file: str):
             if line[i] == '>':
                 if is_close_tag:
                     is_close_tag = False
-                    result_list.append(close_tag + '\n')
+                    xml_list.append(close_tag)
                     close_tag = ''
                 else:
                     is_open_tag = False
-                    result_list.append(open_tag + '\n')
+                    xml_list.append(open_tag)
                     open_tag = ''
 
             if i == len(line) - 1 and len(text):
-                result_list.append(text + '\n')
+                xml_list.append(text)
 
-    indent = -1
-    result_xml.write(result_list[0])
-
-    for i in range(1, len(result_list)):
-
-        # if '<' in result_list[i] and '</' not in result_list[i]:
-        if '<' in result_list[i] and '</' not in result_list[i]:
-            if '</' not in result_list[i - 1]:
-                indent += 1
-
-        elif '</' in result_list[i]:
-            indent -= 1
-
-        else:
-            indent += 1
-
-        result_xml.write(indent * '\t' + result_list[i])
-
-
-def xml_to_json_task3(xml_file: str):
     res = open('result3.json', 'w')
-    xml_obj = open(xml_file)
-
     res.write('{\n')
 
-    xml_list = []
-    for line in xml_obj:
-        xml_list.append(''.join([symbol for symbol in line if symbol != '\n']))
-
-    open_tag = re.compile(r'<[^/]*>')
-    close_tag = re.compile(r'</.*>')
-    text = re.compile(r'[^<]*')
-
-    tags_stack = []
+    indent = 0
     for i in range(1, len(xml_list)):
-        s = xml_list[i]
-        indent = s.count('\t') * 2 + 2
-        s = s.replace('\t', '')
+        line = xml_list[i]
+        text = ''
+        is_text = False
 
-        if len(re.findall(open_tag, s)):
-            tags_stack.append(s)
-            if len(re.findall(open_tag, xml_list[i + 1])) == 0:
-                res.write(indent * ' ' + '"' + make_text(s) + '": ')
+        if check_open_tag(line):
+            if check_open_tag(xml_list[i + 1]):
+                text = '"' + make_text(line) + '"' + ': {\n'
             else:
-                res.write(indent * ' ' + '"' + make_text(s) + '": {\n')
+                text = '"' + make_text(line) + '": '
+            indent += check_open_tag(xml_list[i - 1])
+            res.write(indent * 2 * ' ' + text)
 
-        elif len(re.findall(close_tag, s)):
-            tags_stack.pop()
-            if len(re.findall(close_tag, xml_list[i - 1])):
-                if '<' not in xml_list[i - 2] and '</' not in xml_list[i + 1]:
-                    res.write(indent * ' ' + '},\n')
+        elif check_close_tag(line):
+            if check_close_tag(xml_list[i - 1]):
+                if '<' not in xml_list[i - 2] and not check_close_tag(xml_list[i + 1]):
+                    text = '},\n'
                 else:
-                    res.write(indent * ' ' + '}\n')
+                    text = '}\n'
+                indent -= 1
+                res.write(indent * 2 * ' ' + text)
 
         else:
-            if len(re.findall(close_tag, xml_list[i + 1])) and len(re.findall(close_tag, xml_list[i + 2])) == 0:
-                res.write('"' + s + '",' + '\n')
+            is_text = True
+            if check_close_tag(xml_list[i + 1]) and not check_close_tag(xml_list[i + 2]):
+                text = '"' + line + '",\n'
             else:
-                res.write('"' + s + '"' + '\n')
+                text = '"' + line + '"\n'
+            res.write(text)
 
     res.write('}')
-
     res.close()
     xml_obj.close()
 
 
-make_beautiful_xml("timetable.xml")
-xml_to_json_task3("beautiful_xml.xml")
-
+xml_to_json("timetable.xml")
 

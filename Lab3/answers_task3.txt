@@ -1,5 +1,1 @@
-AbcBbcC
-
-ABCBBCC
-
-AggBggC AAABBBC
+A B C 2
