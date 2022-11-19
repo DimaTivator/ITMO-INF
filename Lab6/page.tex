@@ -1,11 +1,17 @@
 \documentclass[a4paper,14pt]{article}
 
-\usepackage[russian]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{multirow}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
 \usepackage{multicol}
-\setlength{\columnsep}{1cm}
+\usepackage[russian]{babel}
+\usepackage{tikz}
+\usepackage{caption}
 
 \usepackage{blindtext}
 \usepackage{graphicx}
@@ -14,13 +20,77 @@
 
 \begin{document}
     
+    % 3 pictures
+    \begin{figure}[H]
+        
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pic9.png}
+            \captionsetup{labelformat=empty,justification=raggedright,singlelinecheck=false}
+            \caption{\textbf{\textit{Рис. 9}}}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.3\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pic10.png}
+            \captionsetup{labelformat=empty,justification=raggedright,singlelinecheck=false}
+            \caption{\textbf{\textit{Рис.10}}}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.35\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{pic11.png}
+            \captionsetup{labelformat=empty,justification=raggedright,singlelinecheck=false}
+            \caption{\textbf{\textit{Рис.11}}}
+        \end{subfigure}
+    \end{figure}
+    
+    % text start
     \begin{multicols}{2}
         
         \noindent\textbf{Чтобы найти скорость шарика перед вторым ударом (т.е. через время $\tau$) запишем в проекциях на наши оси уравнение (1):}
         
+        \noindent $U_x = U_{0_x} + g_xt$,
+        
+        \noindent $U_y = U_{0_y} + g_yt$. 
+        
+        \noindent\textbf{Подставляя} $t=\tau=2U_y/(-g_y)$\textbf{, получим, что перед вторым ударом} $U_y=-U_{0_y}$ \textbf{и, следовательно, сразу после удара} $U_y=U_{0_y}$\textbf{. Этот результат позволяет облегченно вдохнуть - дальше можно не считать. Так как время между ударами зависит только от $U_{0_y}$, все удары происходят через одинаковое время.}
+        
+        \textbf{Ответить на вопрос задачи теперь удобнее всего, нарисовав друг под другом графики зависимостей координат шарика от времени (рис. 8). Шарик вернется в ту же точку, если в некоторый момент $x=y=0$, что  может быть только если $T=n\tau$, где n - целое число. Итак,}
+        
+        $\frac{2U_0\cos\beta}{g\sin{\alpha}} = n\frac{2U_0\sin\beta}{g\cos{\alpha}}$, 
+        
+        \noindent\textbf{откуда}
+        
+        $\ctg{\beta} = n \tg{\alpha}$.
+        
+        \textbf{Интересно, что при четных и при нечетных n шарик ведет себя несколько по-разному. При четных n средний удар шарика (всего ударов $n + 1$) происходит перпендикулярно плоскости, и шарик возвращается обратно по той же траектории. Если же n нечетно, то после половины ударов шарик летит вертикально вверх, падает обратно, и также возвращается, повторяя весь пройденный путь.}
+        
+        \textbf{З а д а ч а\quad3. \textit{В область пространства, где создано горизонтальное электрическое}}
+        
         \columnbreak
         
-        \noindent\textbf{}
+        \noindent\textbf{\textit{поле с напряженностью $\vec{E}$, запускают шарик, масса которого m, а заряд q, со скоростью $\vec{U_0}$, направлвенной вертикально вверх. Какова минимальная скорость шарика в процессе движения?}}
+        
+        \textbf{Вас не удивило присутствие здесь <<электрической>> задачи? Нет? И правильно, эта задача, конечно же, имеет прямое отношение к кинематике.}
+        
+        \textbf{Обсудим два решения.}
+        
+        \textbf{Р е ш е н и е\quad1. На шарик в полете действуют две силы: сила тяжести $m\vec{g}$ и электрическая сила $\vec{E}q$ (рис. 9). По второму закону Ньютона ускорение шарика постоянно и равно}
+        
+        $\vec{a} = \frac{\vec{E}q + m\vec{g}}{m}$. 
+        
+        \noindent\textbf{При этом}
+        
+        $a = |\vec{a}| = \frac{\sqrt{(Eq)^2 + (mg)^2}}{m}$. 
+        
+        \noindent\textbf{На рисунке 10 показано, как изменяется со временем вектор скорости шарика (<<нарисована>> формула (1)). Ясно, что минимальная скорость будет через время}
+        
+        $t = \frac{U_0\sin{\alpha}}{\alpha}$,
+        
+        \noindent\textbf{и ее величина будет равна}
+        
+        $U_{min} = U_0 \cos{\alpha} = U_0 \frac{}{}$
         
     \end{multicols}
     
