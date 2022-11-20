@@ -1,74 +1,65 @@
-\documentclass[a4paper,14pt]{article}
+% \documentclass[a4paper,14pt]{article}
 
-\usepackage[utf8]{inputenc}
-\usepackage[russian]{babel}
-\usepackage{caption}
-\usepackage{float}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
-\usepackage{multicol}
-\usepackage{multirow}
-\usepackage{tikz}
-\usepackage{array}
+% \usepackage[utf8]{inputenc}
+% \usepackage[russian]{babel}
+% \usepackage{caption}
+% \usepackage{float}
+% \usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+% \usepackage{multicol}
+% \usepackage{multirow}
+% \usepackage{tikz}
+% \usepackage{array}
 
-\usepackage{amsmath}
+% \usepackage{amsmath}
 
-\begin{document}
+% \begin{document}
     
+\begin{flushleft}
+    \textit{Таблица 1}
+\end{flushleft}
+
+\noindent\begin{tabular}{|c|c|c|c|} 
+    
+    \hline 
+    Название интервала & Чистый интервал & 
+    \multicolumn{2}{c|}{Интервал на рояле} \\
+    \hline
     \begin{flushleft}
-        \textit{Таблица 1}
+        малая терция
     \end{flushleft}
+         & 6 : 5 = 1,2 & 1,1892... & $q^3$ \\
+    \hline
+    \begin{flushleft}
+        большая терция 
+    \end{flushleft}
+        & 5 : 4 = 1,25 & 1,2599... & $q^4$ \\
+    \hline 
+    \begin{flushleft}
+        кварта     
+    \end{flushleft}
+    & 4 : 3 = 1,333... & 1,3348... & $q^5$ \\
+    \hline
+    \begin{flushleft}
+        квинта
+    \end{flushleft}
+    & 3 : 2 = 1,5 & 1,4983... & $q^7$ \\
+    \hline 
+    \begin{flushleft}
+        малая секста     
+    \end{flushleft}
+    & 8 : 5 = 1,6 & 1,5874... & $q ^ 8$ \\
+    \hline 
+    \begin{flushleft}
+        большая секста     
+    \end{flushleft}
+    & 5 : 3 = 1,666... & 1,6817... & $q^9$ \\
+    \hline 
+    \begin{flushleft}
+        октава     
+    \end{flushleft}
+    & 2 : 1 = 2 & 2 & $q^{12}$ \\
+    \hline
+     
+\end{tabular}
     
-    \noindent\begin{tabular}{|c|c|c|c|} 
-        
-        \hline 
-        Название интервала & Чистый интервал & 
-        \multicolumn{2}{c|}{Интервал на рояле} \\
-        \hline
-        \begin{flushleft}
-            малая терция
-        \end{flushleft}
-             & 6 : 5 = 1,2 & 1,1892... & $q^3$ \\
-        \hline
-        \begin{flushleft}
-            большая терция 
-        \end{flushleft}
-            & 5 : 4 = 1,25 & 1,2599... & $q^4$ \\
-        \hline 
-        \begin{flushleft}
-            кварта     
-        \end{flushleft}
-        & 4 : 3 = 1,333... & 1,3348... & $q^5$ \\
-        \hline
-        \begin{flushleft}
-            квинта
-        \end{flushleft}
-        & 3 : 2 = 1,5 & 1,4983... & $q^7$ \\
-        \hline 
-        \begin{flushleft}
-            малая секста     
-        \end{flushleft}
-        & 8 : 5 = 1,6 & 1,5874... & $q ^ 8$ \\
-        \hline 
-        \begin{flushleft}
-            большая секста     
-        \end{flushleft}
-        & 5 : 3 = 1,666... & 1,6817... & $q^9$ \\
-        \hline 
-        \begin{flushleft}
-            октава     
-        \end{flushleft}
-        & 2 : 1 = 2 & 2 & $q^{12}$ \\
-        \hline
-         
-    \end{tabular}
-    
-    % \begin{tabular}{ | m{5em} | m{1cm}| m{1cm} | } 
-    %     \hline
-    %     cell1 dummy text dummy text dummy text& cell2 & cell3 \\ 
-    %     \hline
-    %     cell1 dummy text dummy text dummy text & cell5 & cell6 \\ 
-    %     \hline
-    %     cell7 & cell8 & cell9 \\ 
-    %     \hline
-    % \end{tabular}   
-\end{document}
+% \end{document}
